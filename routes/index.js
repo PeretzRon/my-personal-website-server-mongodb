@@ -11,7 +11,7 @@ router.put('/incSiteVisitors', async (req, res) => {
     if (cache.get(req.ip)) return;
     const userAgent = req.headers["user-agent"];
     const device = deviceDetector.parse(userAgent);
-    device.ip = req.ip;
+    device.ip = req.get('X-Real-IP');
     device.date = new Date();
     cache.set(req.ip, req.ip);
     await db.getDb()
@@ -24,7 +24,7 @@ router.put('/incSiteVisitors', async (req, res) => {
 router.put('/resumeDownload', async (req, res) => {
     const details = {
         date: new Date(),
-        ip: req.ip
+        ip: req.get('X-Real-IP')
     };
     await db.getDb()
         .db()
