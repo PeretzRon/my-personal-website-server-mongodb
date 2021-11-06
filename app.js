@@ -1,19 +1,18 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const indexRouter = require('./routes/index');
+const routes = require('./api/routes');
 const app = express();
 const http = require('http');
-const db = require("./db");
-
+const db = require("./services/db");
 const port = 5000;
 
 app.set('port', port);
 
 app.use(cors());
-
-app.use('/', indexRouter);
+const router = routes();
+app.use('/', router);
 const server = http.createServer(app);
-
 
 db.initDb((err, db) => {
     if (err) {

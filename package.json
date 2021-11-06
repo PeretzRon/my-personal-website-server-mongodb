@@ -10,6 +10,7 @@
     "cors": "^2.8.5",
     "debug": "~2.6.9",
     "device-detector-js": "^2.2.10",
+    "dotenv": "^10.0.0",
     "express": "~4.16.1",
     "geoip-lite": "^1.4.2",
     "mongodb": "^4.1.2",
