@@ -5,6 +5,7 @@ const routes = require('./api/routes');
 const app = express();
 const http = require('http');
 const db = require("./services/db");
+const {getConfigService} = require("./services/get-config/get-config.service");
 const port = 5000;
 
 app.set('port', port);
