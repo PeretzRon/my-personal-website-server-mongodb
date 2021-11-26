@@ -4,6 +4,10 @@ const visitorsRoute = require('./visitors/visitors.route');
 
 const routes = () => {
 
+    router.get('/health', (req, res) => {
+        res.status(200).send('OK');
+    });
+
     /*  APPLICATION API  */
     router.use('/', visitorsRoute);
     /*  APPLICATION API  */
